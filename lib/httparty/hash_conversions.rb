@@ -26,7 +26,8 @@ module HTTParty
       stack = []
 
       if value.respond_to?(:to_ary)
-        param << value.to_ary.map { |element| normalize_param("#{key}[]", element) }.join
+        param << value.to_ary.map { |element| normalize_param("#{key}", element) }.join
+        # param << value.to_ary.map { |element| normalize_param("#{key}[]", element) }.join
       elsif value.respond_to?(:to_hash)
         stack << [key, value.to_hash]
       else
